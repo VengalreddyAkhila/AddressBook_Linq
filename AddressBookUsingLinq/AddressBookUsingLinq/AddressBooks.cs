@@ -44,14 +44,9 @@ namespace AddressBookUsingLinq
             foreach (var table in dt.AsEnumerable())
             {
                 // Get all field by column index.
-                Console.WriteLine("\nFirstName:-" + table.Field<string>("FirstName"));
-                Console.WriteLine("LastName:-" + table.Field<string>("LastName"));
-                Console.WriteLine("Address:-" + table.Field<string>("Address"));
-                Console.WriteLine("City:-" + table.Field<string>("City"));
-                Console.WriteLine("State:-" + table.Field<string>("State"));
-                Console.WriteLine("ZipCode:-" + table.Field<int>("ZipCode"));
-                Console.WriteLine("PhoneNumber:-" + table.Field<long>("PhoneNumber"));
-                Console.WriteLine("EmailId:-" + table.Field<string>("EmailId"));
+                Console.WriteLine("\nFirstName:-" + table.Field<string>("FirstName")+ "\n LastName:-" + table.Field<string>("LastName")+ "\n Address:-" + table.Field<string>("Address")+
+                    "\n City:-" + table.Field<string>("City")+ "\n State:-" + table.Field<string>("State")+
+                    "\n ZipCode:-" + table.Field<int>("ZipCode")+ "\n PhoneNumber:-" + table.Field<long>("PhoneNumber")+ "\n EmailId:-" + table.Field<string>("EmailId"));
             }
         }
         /// <summary>
@@ -92,7 +87,7 @@ namespace AddressBookUsingLinq
         {
             try
             {               
-                var Deleterow = dt.AsEnumerable().Where(a => a.Field<string>("FirstName").Equals(firstName)).FirstOrDefault();
+                var Deleterow = dt.AsEnumerable().Where(x => x.Field<string>("FirstName").Equals(firstName)).FirstOrDefault();
                 if (Deleterow != null)
                 {                   
                     Deleterow.Delete();
@@ -107,6 +102,21 @@ namespace AddressBookUsingLinq
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+        /// <summary>
+        /// UC6:retriew data from city in addressbook
+        /// </summary>
+        public void RetriewDataByCity()
+        {
+            Contacts contacts = new Contacts();
+            var records = dt.AsEnumerable().Where(x => x.Field<string>("City").Equals(contacts.city)).FirstOrDefault();
+            foreach (var table in dt.AsEnumerable())
+            {
+                // Get all field by column index.
+                Console.WriteLine("\nFirstName:-" + table.Field<string>("FirstName") + "\n LastName:-" + table.Field<string>("LastName") + "\n Address:-" + table.Field<string>("Address") + 
+                    "\n City:-" + table.Field<string>("City") + "\n State:-" + table.Field<string>("State") +
+                    "\n ZipCode:-" + table.Field<int>("ZipCode") + "\n PhoneNumber:-" + table.Field<long>("PhoneNumber") + "\n EmailId:-" + table.Field<string>("EmailId"));
             }
         }
     }
