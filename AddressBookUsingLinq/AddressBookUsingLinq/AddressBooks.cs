@@ -5,13 +5,15 @@ using System.Text;
 
 namespace AddressBookUsingLinq
 {
+    /// <summary>
+    /// creating the data table using linq properies we insert all data
+    /// </summary>
     public class AddressBooks
     {
         //UC1:create table
         DataTable dt = new DataTable();
         public void CreateTable()
-        {
-            
+        {            
             //UC2:add columns to table
             dt.Columns.Add("firstName", typeof(string));
             dt.Columns.Add("lastName", typeof(string));
