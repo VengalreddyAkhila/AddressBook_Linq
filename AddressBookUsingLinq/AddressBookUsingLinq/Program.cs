@@ -7,8 +7,9 @@ namespace AddressBookUsingLinq
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            AddressBooks addressBooks = new AddressBooks();           
+            Console.WriteLine("welcome to Addressbook ");
+            AddressBooks addressBooks = new AddressBooks();
+           
         }
     }
 }
