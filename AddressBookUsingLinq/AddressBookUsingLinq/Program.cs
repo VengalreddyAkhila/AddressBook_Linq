@@ -9,7 +9,8 @@ namespace AddressBookUsingLinq
         {
             Console.WriteLine("welcome to Addressbook ");
             AddressBooks addressBooks = new AddressBooks();
-           
+            addressBooks.CreateTable();
+            addressBooks.InsertRows();
         }
     }
 }

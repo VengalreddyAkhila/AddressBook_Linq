@@ -13,5 +13,6 @@ namespace AddressBookUsingLinq
         public string state { get; set; }
         public int zipcode { get; set; }
         public long phonenumber { get; set; }
+        public string emailId { get; set; }
     }
 }
