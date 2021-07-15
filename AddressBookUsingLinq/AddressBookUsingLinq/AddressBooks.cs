@@ -119,6 +119,21 @@ namespace AddressBookUsingLinq
                     "\n ZipCode:-" + table.Field<int>("ZipCode") + "\n PhoneNumber:-" + table.Field<long>("PhoneNumber") + "\n EmailId:-" + table.Field<string>("EmailId"));
             }
         }
+        /// <summary>
+        /// UC8:sorting addressbook by alphabetically in table usinmg names
+        /// </summary>
+        public void SortingAlphabetically()
+        {
+            Contacts contacts = new Contacts();
+            var records = dt.AsEnumerable().Where(x => x.Field<string>("City") == contacts.city).OrderBy(x => x.Field<string>("FirstName")).ThenBy(x => x.Field<string>("LastName"));
+            foreach (var table in dt.AsEnumerable())
+            {
+                // Get all field by column index.
+                Console.WriteLine("\nFirstName:-" + table.Field<string>("FirstName") + "\n LastName:-" + table.Field<string>("LastName") + "\n Address:-" + table.Field<string>("Address") +
+                    "\n City:-" + table.Field<string>("City") + "\n State:-" + table.Field<string>("State") +
+                    "\n ZipCode:-" + table.Field<int>("ZipCode") + "\n PhoneNumber:-" + table.Field<long>("PhoneNumber") + "\n EmailId:-" + table.Field<string>("EmailId"));
+            }
+        }
     }
 }
 

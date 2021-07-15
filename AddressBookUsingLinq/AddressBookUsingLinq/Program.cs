@@ -13,13 +13,17 @@ namespace AddressBookUsingLinq
             addressBooks.CreateTable();
             //inserting data to table
             addressBooks.InsertRows();
-            addressBooks.DisplayContacts();
-            //deleting data in table
-            addressBooks.DeleteContacts("Akhila");
-            //retriew data from city in table
-            Console.WriteLine("Enter city:");
+            //addressBooks.DisplayContacts();
+            ////deleting data in table
+            //addressBooks.DeleteContacts("Akhila");
+            ////retriew data from city in table
+            //Console.WriteLine("Enter city:");
+            //contacts.city = Console.ReadLine();
+            //addressBooks.RetriewDataByCity();
+            //sorting alphabetically in table
+            Console.WriteLine("enter the city:");
             contacts.city = Console.ReadLine();
-            addressBooks.RetriewDataByCity();
+            addressBooks.SortingAlphabetically();
 
         }
     }
