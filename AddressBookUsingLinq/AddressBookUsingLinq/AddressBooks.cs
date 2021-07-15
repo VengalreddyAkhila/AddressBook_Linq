@@ -84,6 +84,31 @@ namespace AddressBookUsingLinq
                 Console.WriteLine(e.Message);
             }
         }
+        /// <summary>
+        /// UC5-deleting the row by using name in addresssbook
+        /// </summary>
+        /// <param name="firstName"></param>
+        public void DeleteContacts(string firstName)
+        {
+            try
+            {               
+                var Deleterow = dt.AsEnumerable().Where(a => a.Field<string>("FirstName").Equals(firstName)).FirstOrDefault();
+                if (Deleterow != null)
+                {                   
+                    Deleterow.Delete();
+                    Console.WriteLine("\nContacts deleted successfully!", firstName);
+                    DisplayContacts();
+                }
+                else
+                {
+                    Console.WriteLine("There is no such data in address book");
+                }
+            }            
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
 
