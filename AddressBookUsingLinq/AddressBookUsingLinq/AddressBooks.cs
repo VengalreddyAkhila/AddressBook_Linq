@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookUsingLinq
 {
+    /// <summary>
+    /// creating the data table using linq properies we insert all data
+    /// </summary>
     public class AddressBooks
     {
         //UC1:create table
         DataTable dt = new DataTable();
         public void CreateTable()
-        {
-            
+        {            
             //UC2:add columns to table
             dt.Columns.Add("firstName", typeof(string));
             dt.Columns.Add("lastName", typeof(string));
@@ -49,6 +52,36 @@ namespace AddressBookUsingLinq
                 Console.WriteLine("ZipCode:-" + table.Field<int>("ZipCode"));
                 Console.WriteLine("PhoneNumber:-" + table.Field<long>("PhoneNumber"));
                 Console.WriteLine("EmailId:-" + table.Field<string>("EmailId"));
+            }
+        }
+        /// <summary>
+        /// UC4-Edit the contact details in address book using linq
+        /// </summary>
+        public void EditContacts()
+        {
+            try
+            {                
+                string editName = "Akhila";
+                
+                var updateContact = dt.AsEnumerable().Where(x => x.Field<string>("FirstName").Equals(editName)).FirstOrDefault();
+                if (updateContact != null)
+                {
+                    ////Update contacts
+                    updateContact.SetField("PhoneNumber", "895478520");
+                    updateContact.SetField("City", "Vemula");
+                    updateContact.SetField("State", "Maharastra");
+                    Console.WriteLine("\n contacts updated successfully!", editName);
+                    DisplayContacts();
+                }
+                else
+                {
+                    Console.WriteLine("There is no such contacts in the Address Book!");
+                }
+            }
+           
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
